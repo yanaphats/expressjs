@@ -1,0 +1,16 @@
+logfile
+node_modules/
+
+# VSCode
+.vscode
+
+# Cache files
+.DS_Store
+.DS_Store.moved
+*.~*~
+*.cache
+sitemap.xml
+
+# Thumbnails
+._*
+Thumbs.db
