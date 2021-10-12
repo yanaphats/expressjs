@@ -23,4 +23,4 @@ jobs:
               - "d3:8e:38:fd:c9:0a:7d:99:39:92:70:92:bb:2d:27:a9"
       - deploy:
           name: deployment
-          command: ssh -o "StrictHostKeyChecking no" root@134.209.103.187 "cd ~ && rm -rf express-circleci && git clone https://github.com/yanaphats/express-circleci.git && cd express-circleci/deploy && sh deployment.sh"
+          command: ssh -o "StrictHostKeyChecking no" root@134.209.103.187 "cd /var/www && rm -rf express && git clone https://github.com/yanaphats/express.git && cd express/deploy && sh deployment.sh"
