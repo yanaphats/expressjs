@@ -26,7 +26,7 @@ jobs:
       - checkout
       - run:
           name: update-npm
-          command: npm update
+          command: exit
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
   deploy:
