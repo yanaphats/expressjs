@@ -7,7 +7,7 @@ jobs:
     steps:
       - checkout
       - run:
-          name: update-npm
+          name: install-npm
           command: 'sudo npm install -g npm@latest'
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
@@ -25,8 +25,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: audit-npm
-          command: 'sudo npm audit'
+          name: update-npm
+          command: npm update
       - restore_cache:
           key: dependency-cache-{{ checksum "package.json" }}
   deploy:
