@@ -18,7 +18,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-  test:
+  test-unit:
     working_directory: ~/workspace
     docker:
       - image: circleci/node:12.6.0
@@ -40,3 +40,32 @@ jobs:
       - deploy:
           name: deployment
           command: ssh -o "StrictHostKeyChecking no" root@134.209.103.187 "cd /var/www && rm -rf expressjs && git clone https://github.com/yanaphats/expressjs.git && cd expressjs/deploy && sh deployment.sh"
+
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only:
+                - development
+                - uat
+                - master
+      - test-unit:
+          requires:
+            - build
+          filters:
+            branches:
+              only:
+                - development
+                - uat
+                - master
+      - deploy:
+          requires:
+            - test-unit
+          filters:
+            branches:
+              only:
+                - uat
+                - master
