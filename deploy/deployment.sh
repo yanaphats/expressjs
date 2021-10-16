@@ -1,5 +1,4 @@
 #!/bin/bash
 npm install
-npm install -g forever
-forever start -c “npm run start”
+forever start --minUptime 1000 --spinSleepTime 1000 ./bin/www
 exit
