@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/repo
+    working_directory: ~/workspace
     docker:
       - image: circleci/node:12.6.0
     steps:
@@ -18,6 +18,22 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+  test:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:12.6.0
+    steps:
+      - checkout
+      - run:
+          name: audit-npm
+          command: 'sudo npm audit'
+      - restore_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+  deploy:
+    working_directory: ~/workspace
+    docker:
+      - image: circleci/node:12.6.0
+    steps:
       - add_ssh_keys:
           fingerprints:
               - "d3:8e:38:fd:c9:0a:7d:99:39:92:70:92:bb:2d:27:a9"
