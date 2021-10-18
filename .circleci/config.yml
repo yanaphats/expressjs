@@ -40,7 +40,6 @@ jobs:
       - deploy:
           name: deployment
           command: ssh -o "StrictHostKeyChecking no" root@134.209.103.187 "cd /var/www && rm -rf expressjs && rm -rf api && git clone https://github.com/yanaphats/expressjs.git api && cd api/deploy && sh deployment.sh"
-
 workflows:
   version: 2
   deploy:
