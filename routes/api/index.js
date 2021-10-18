@@ -1,7 +1,11 @@
 const router = require('express').Router()
-const controllers = require('../../controllers/api/TestController')
+const TestControllers = require('../../controllers/api/TestController')
+const MyCloudControllers = require('../../controllers/api/MyCloudController')
 
-router.get('/test', controllers.onTesting)
-router.get('/test/mycloud', controllers.onTestingMyCloud)
+router.get('/test', TestControllers.onTesting)
+router.get('/test/mycloud', TestControllers.onTestingMyCloud)
+
+router.post('/mycloud/token', MyCloudControllers.getToken)
+router.get('/mycloud/detail', MyCloudControllers.getOrderDetail)
 
 module.exports = router

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "nodemon ./bin/www",
-	"nodemon": "nodemon --signal SIGKILL",
+    "nodemon": "nodemon --signal SIGKILL",
     "test": "echo \"No test specified\" && exit 0"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "kill-port": "^1.6.1",
     "morgan": "~1.9.1",
     "nodemon": "^2.0.13",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "randomstring": "^1.2.1"
   }
 }

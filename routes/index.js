@@ -2,9 +2,9 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  res.send({ title: 'Express' });
+  res.send({ title: 'Api' });
 });
 
-router.use(`/api`, require('./api'))
+router.use(`/`, require('./api'))
 
 module.exports = router;
