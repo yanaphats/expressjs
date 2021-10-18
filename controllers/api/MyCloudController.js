@@ -3,7 +3,7 @@ const randomstring = require("randomstring");
 const methods = {
 
 	async getToken(req, res, next) {
-		res.send({token: randomstring.generate(500)})
+		res.send({ token: randomstring.generate(500) });
 	},
 
 	async getOrderDetail(req, res, next) {
