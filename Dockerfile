@@ -1,7 +1,7 @@
 FROM node:14-alpine AS builder
 WORKDIR /usr/src/api
 
-COPY package*.json .
+COPY package*.json ./
 
 RUN apk --no-cache add curl
 
