@@ -39,7 +39,7 @@ jobs:
               - "d3:8e:38:fd:c9:0a:7d:99:39:92:70:92:bb:2d:27:a9"
       - deploy:
           name: deployment
-          command: ssh -o "StrictHostKeyChecking no" root@134.209.103.187 "cd /var/www && rm -rf expressjs && rm -rf api && git clone https://github.com/yanaphats/expressjs.git api && cd api/deploy && sh deployment.sh"
+          command: ssh -o "StrictHostKeyChecking no" ${DEPLOY_AUTH} "cd /var/www && rm -rf api && git clone https://github.com/yanaphats/expressjs.git api && cd api/deploy && sh deployment.sh"
 workflows:
   version: 2
   deploy:
